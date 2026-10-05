@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 import pytest
 from sqlalchemy import create_engine, text
@@ -10,8 +9,8 @@ if not URL_TESTE:
 os.environ["DATABASE_URL"] = URL_TESTE
 
 import app as api
+from carregar import SCHEMA
 
-SCHEMA = (Path(__file__).resolve().parents[2] / "db" / "init" / "01_schema.sql").read_text()
 
 LINHAS = [
     {"nome": "ANA LIMA", "cargo": "ANALISTA", "orgao": "MINISTERIO DA FAZENDA", "uf": "SP", "situacao": "ativo"},

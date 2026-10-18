@@ -11,6 +11,16 @@ import psycopg2
 BASE = "https://repositorio.dados.gov.br/segrt"
 CARREIRAS = BASE + "/Cargos%20e%20Carreiras/2026/CARREIRA_082026.txt"
 APOSENTADOS = BASE + "/Aposentados/2026/APOSENTADOS_082026.csv"
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS servidores (
+    id       SERIAL PRIMARY KEY,
+    nome     TEXT NOT NULL,
+    cargo    TEXT,
+    orgao    TEXT,
+    uf       CHAR(2),
+    situacao TEXT NOT NULL CHECK (situacao IN ('ativo', 'aposentado'))
+);
+"""
 
 
 def baixar(url):
@@ -46,6 +56,7 @@ def main():
     escritor.writerows(itertools.chain(ativos(baixar(CARREIRAS)), aposentados(baixar(APOSENTADOS))))
     buffer.seek(0)
     with psycopg2.connect(url) as conexao, conexao.cursor() as cursor:
+        cursor.execute(SCHEMA)
         cursor.execute("TRUNCATE servidores RESTART IDENTITY")
         cursor.copy_expert(
             "COPY servidores (nome, cargo, orgao, uf, situacao) FROM STDIN WITH CSV", buffer

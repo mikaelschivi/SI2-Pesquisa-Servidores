@@ -26,7 +26,7 @@ Para parar: `docker compose down`. Para apagar também o banco: `docker compose 
 
 | Serviço    | O que faz                                                                 |
 |------------|---------------------------------------------------------------------------|
-| `db`       | Postgres 16. Tem healthcheck com `pg_isready`.                            |
+| `db`       | Postgres 16 (build de `db/`, aplica `schema.sql`). Tem healthcheck com `pg_isready`. |
 | `loader`   | Roda uma vez. Cria a tabela, baixa os dados e carrega com `COPY`.         |
 | `backend`  | API Flask na porta 5000. Só sobe depois que o `loader` termina com sucesso. |
 | `frontend` | Build do Vue servido na porta 8080.                                       |
@@ -114,6 +114,7 @@ Sem `TEST_DATABASE_URL`, os testes são ignorados.
 ```
 backend/    API Flask, script de carga (carregar.py) e testes
 frontend/   App Vue 3 com Vite
+db/         Dockerfile do Postgres e schema.sql (criado na primeira subida)
 docker-compose.yml
 .env.example
 ```

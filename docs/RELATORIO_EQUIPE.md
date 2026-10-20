@@ -30,7 +30,7 @@ Tudo roda em contêineres Docker e sobe automaticamente com um único comando (`
 | :--- | :---: | :--- |
 | **Júlio César (`jcesar-fx`)** | 5 | Criou a estrutura da tabela do banco, fez o script que baixa e carrega os dados do governo (`carregar.py`) e montou a configuração inicial e o Dockerfile do frontend. |
 | **Vinícius Martins Borges** | 5 | Desenvolveu a API de busca e validação no backend (`app.py`), criou os testes automatizados (`test_api.py`) e construiu a tela de pesquisa e tabela de resultados (`App.vue` e `main.js`). |
-| **Mikael (`mikael`)** | 10 | Configurou o ambiente (`.gitignore`, `.env.example`), criou o Dockerfile do backend com Gunicorn, montou o `docker-compose.yml`, organizou a pasta `db/`, escreveu o `README.md` e gerou o gráfico de burndown (`docs/`). |
+| **Mikael (`mikael`) — Líder Técnico** | 10 | Configurou o ambiente (`.gitignore`, `.env.example`), criou o Dockerfile do backend com Gunicorn, montou o `docker-compose.yml`, organizou a pasta `db/`, escreveu o `README.md` e gerou o gráfico de burndown (`docs/`). |
 
 ### 2.2. Histórico diário de commits
 

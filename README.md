@@ -4,6 +4,8 @@ Busca de servidores públicos federais (ativos e aposentados) com dados do [dado
 
 Stack: Postgres 16, Flask + Gunicorn, Vue 3 + Vite, tudo em Docker Compose.
 
+Trabalho feito por: **Vinicius Martins Borges**, **Mikael Schivittz Sampaio**, **Júlio César de Oliveira Júnior**
+
 ## Como rodar
 
 Precisa de Docker e Docker Compose.
